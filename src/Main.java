@@ -22,12 +22,7 @@ public class Main {
         t.DeleteRecordFromIndex("B-tree Index.bin",10);
         t.DeleteRecordFromIndex("B-tree Index.bin",10);
         t.DeleteRecordFromIndex("B-tree Index.bin",21);
-        t.DeleteRecordFromIndex("B-tree Index.bin",5);
-        t.DeleteRecordFromIndex("B-tree Index.bin",1);
-        t.DeleteRecordFromIndex("B-tree Index.bin",9);
-        t.DeleteRecordFromIndex("B-tree Index.bin",7);
-        t.DeleteRecordFromIndex("B-tree Index.bin",13);
-        t.DeleteRecordFromIndex("B-tree Index.bin",3);
+
 
 
         t.DisplayIndexFileContent("B-tree Index.bin");
