@@ -249,7 +249,7 @@ public class B_Tree {
                 Vector <List<Record>> root_child1_child2=new Vector<>();
                 root_child1_child2.addAll(0,Split(childList,referenceOfChildNode,flag_of_next_empty_node));
                 //2.9.3 updateRoot   ---> add new root (this I get after split) to main root
-                updateRoot(rootList,root_child1_child2.get(0));
+                updateRootAfterSplit(rootList,root_child1_child2.get(0));
                 //2.9.4 rewrite root
                 fileStore.seek((rowSize*4)+4);
                 for (int i=0;i<rootList.size();i++)
@@ -313,7 +313,7 @@ public class B_Tree {
         int ReferanceChild=searchReferanceChild(rootList,RecordID);
             //not found in root , the key that wanted to delete is not exist
         if (ReferanceChild==-1)
-            System.out.println("not found "+RecordID);
+            System.out.println("Sorry not found "+RecordID+" that you try to delete");
         else
         {
             //4 seek on reference and read child , push to list
@@ -330,7 +330,7 @@ public class B_Tree {
             filterList(childList);
             //6. check if the Record ID is found in child list
             if (!checkKeyIsExist(childList,RecordID))
-            System.out.println("not found "+RecordID);
+            System.out.println("Sorry not found "+RecordID+" that you try to delete");
             else
             {
                 //7. delete record form child list
@@ -556,7 +556,7 @@ public class B_Tree {
         return listRecord;
     }
 
-    public static List<Record> updateRoot (List<Record> mainRoot, List<Record> newRoot)
+    public static List<Record> updateRootAfterSplit (List<Record> mainRoot, List<Record> newRoot)
     {
         for(int i=0;i<mainRoot.size();i++)
         {
